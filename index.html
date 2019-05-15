@@ -2,112 +2,45 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
 	<title>Claresholm Directory - workInProgress</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="shortcut icon" type="image/x-icon" href="#" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
 
     <style>
-      
      div > .leaflet-popup-content-wrapper{
-      width: 700px;
-      height: 600px;
-      
-      overflow: scroll;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 10;
-      border-radius: 10px;
-      margin: 0;
-      padding: 0;
+      width: 300px;
+      height: 300px;
      }
      
      .leaflet-popup-content-wrapper{
-      background-color: #fff;
-      background-color: #C9C7C3;
+       width: 100px;
+       height: 100px;
+       overflow: scroll;
      }
 
-     .leaflet-popup-content{
-       text-align: center;
-       margin: 0;
-       padding: 0;
-      }
-
-
-
-      .leaflet-popup-content div.border{
-        border: 1rem solid #fff;
-        margin-left: 7rem;
-        margin-top: 2rem;
-      }
-
-      .leaflet-popup-content p{
-        text-align: left;
-       }
-
-       .leaflet-popup-content p.title{
-        text-align: center;  
-       }
-
-       .leaflet-popup-content p.desc{
-        text-align: center;  
-        margin-left: 7rem;
-        color: white;
-       }
-
-       .leaflet-popup-content > img{
+     .leaflet-popup-content > img{
       width: 100%;
       height: 100%;
+     
+
      }
-
-      .leaflet-popup-content video{
-        width:400px;
-        height:300px;
-        border-radius: 3rem;
-      }
-
-      .leaflet-popup-content iframe{
-        width:400px;
-        height:300px;
-        margin: 0;
-        padding: 0;
-        border-radius: 2rem;
-      }
-
-      .leaflet-popup-content .fa-telegram-plane{
-        font-size: 2rem;
-        width: 30rem;
-        padding: 1rem;
-        margin-left: -5rem;
-        color:#fff;
-        border: 1rem solid #fff;
-        background-color: #7AB5D5;
-        border-radius: 3rem;
-
-      }
-
-      .
-     /*.leaflet-popup-content > img{
-      width: 100%;
-      height: 100%;
-     }*/
 
     </style>
 
-
+	
 </head>
 <body>
 
 
-<div id="mapid" style="width: 1920px; height: 1200px;"></div>
+
+<div id="mapid" style="width: 600px; height: 400px;"></div>
 <script>
   
   var mymap = L.map('mapid').setView([50.019192, -113.583771], 16);
@@ -125,8 +58,8 @@
   var popup1 = L.popup({
     
   })
-  .setLatLng([50.026439,  -113.582744])
-  .setContent('<div class = "border"><p class = "title">Mystic Rebel</div></p><br /><p class = "desc">103, 106 - 50th Ave West Claresholm, Alberta T0L 0T0</p><video autoplay> <source src="Mystic Rebel.mp4" type="video/mp4"> </video><iframe width="300" height="300" src="https://www.youtube.com/embed/uxPdPpi5W4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><a href="#"><i class="fab fa-telegram-plane"> Directions</i></a>')
+  .setLatLng([50.026439,  -114.582744])
+  .setContent('<b> Mystic Rebel</b><br />103, 106 - 50th Ave West Claresholm, Alberta T0L 0T0 <img src="mr1.jpg"/>,<img src="mr2.jpg"/>,<img src="mr3.jpg"/>,<audio controls> <source src="Mystic Rebel.mp4" type="audio/mp4">')
   .openOn(mymap);
 
 
@@ -154,14 +87,14 @@
 
   
 
-	/*function onMapClick(e) {
+	function onMapClick(e) {
 		popup
 			.setLatLng(e.latlng)
 			.setContent("You clicked the map at " + e.latlng.toString())
 			.openOn(mymap);
 	}
 
-	mymap.on('click', onMapClick);*/
+	mymap.on('click', onMapClick);
 
 </script>
 
