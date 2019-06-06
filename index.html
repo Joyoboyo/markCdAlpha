@@ -9,16 +9,25 @@
 	
 	<link rel="shortcut icon" type="image/x-icon" href="#" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+  <!-- <link rel="stylesheet" href="leaflet.css"> -->
+  <!-- <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script> -->
+  <script src="leaflet.js"></script>
 
 
     <style>
+
+      .leaflet-popup {
+        position: absolute;
+        text-align: center;
+        margin-bottom: 20px;
+        }
       
      div > .leaflet-popup-content-wrapper{
-      width: 700px;
+      width: 43.75rem;
       height: 600px;
-      
+      text-align: center;
       overflow: scroll;
       display: flex;
       flex-direction: column;
@@ -50,7 +59,7 @@
       }
 
       .leaflet-popup-content p{
-        text-align: left;
+        text-align: center;
        }
 
        .leaflet-popup-content p.title{
@@ -59,12 +68,14 @@
 
        .leaflet-popup-content p.desc{
         text-align: center;
+        /*margin-top: 0;
+        margin-bottom: 0;*/
         margin-left: 7rem;
         color: white;
        }
 
        .leaflet-popup-content > img{
-      width: 100%;
+      width: 95%;
       height: 100%;
      }
 
@@ -86,7 +97,7 @@
         font-size: 2rem;
         width: 30rem;
         padding: 1rem;
-        margin-left: -5rem;
+        margin-left: 5rem;
         color:#fff;
         border: 1rem solid #fff;
         background-color: #7AB5D5;
@@ -94,7 +105,27 @@
 
       }
 
-      .
+      .leaflet-container a.leaflet-popup-close-button {
+        position: absolute;
+        top: 0;
+        right: 1rem;
+        padding: 4px 4px 0 0;
+        border: none;
+        text-align: center;
+        width: 18px;
+        height: 14px;
+        font: 16px/14px Tahoma, Verdana, sans-serif;
+        /*color: #c3c3c3;*/
+        color:white;
+        text-decoration: none;
+        font-weight: bold;
+        background: transparent;
+      }
+      
+      .leaflet-container a.leaflet-popup-close-button:hover {
+        /*color: #999;*/
+        color: black;
+      }
      /*.leaflet-popup-content > img{
       width: 100%;
       height: 100%;
@@ -105,34 +136,123 @@
 
 </head>
 <body>
+<!-- navbar  -->
+<div class="navbar">
 
+    <input type="checkbox"  id="click" class="checkbox" hidden>
+    <!-- start sidebar -->
+    <div class="sidebar">
+        <label for="click"> 
+            <!-- This is added so it is clickable and becomes active for click event without javascript -->
+            <div class="menu-icon">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+        </label>
+        <ul class="social-icons-list">
+            <li><a href="http://" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="http://" class="social-link"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="http://" class="social-link"><i class="fab fa-pinterest-p"></i></a></li>
+            <li><a href="http://" class="social-link"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+
+        <div class="year">
+            <p>2019</p>
+        </div>
+
+    </div>
+
+    <!-- End of sidebar -->
+
+    <!-- navigation -->
+    <nav class="navigation">
+        <div class="navigation-header">
+            <h1 class="navigation-heading">Directory Project</h1>
+            <form  class="navigation-search">
+                <input type="text" name="#" class="navigation-search-input" placeholder="Search....">
+                <button class="navigation-search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+
+        <ul class="navigation-list">
+            <li class="navigation-item">
+                <a href="#" class="navigation-link">Home</a>
+            </li>
+            <li class="navigation-item">
+                <a href="#" class="navigation-link" id="rebel">Mystic Rebel</a>
+            </li>
+            <li class="navigation-item">
+                <a href="#" class="navigation-link" id="rex"> JK's Barber Shop</a>
+            </li>
+            <!-- <li class="navigation-item">
+                <a href="#" class="navigation-link">Events</a>
+            </li> -->
+            <li class="navigation-item">
+                <a href="#" class="navigation-link">Customers</a>
+            </li><li class="navigation-item">
+                <a href="#" class="navigation-link">Contact</a>
+            </li>
+        </ul>
+
+        <div class="copyright">
+            <p>&copy; 2019. Mark Dyrholm INC & Balanced Web Solutions. All Rights Reserved </p>
+        </div>
+    </nav>
+    <!-- End of navigation -->
+
+
+</div>
+<!-- end of navbar -->
 
 <div id="mapid" style="width: 1920px; height: 1200px;"></div>
 <script>
+
   
-  var mymap = L.map('mapid').setView([50.019192, -113.583771], 16);
-
-
-
+  <!-- var mymap = L.map('mapid').setView([50.019192, -113.583771], 16); -->
+  var mymap = L.map('mapid').setView([50.019192, -113.583771], 10);
+  
+  
+  
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 50,
+    maxZoom: 50,
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
 		id: 'mapbox.streets'
   }).addTo(mymap);
-
+  
   var popup1 = L.popup({
-
+    
   })
   .setLatLng([50.026439,  -113.582744])
   .setContent('<div class = "border"><p class = "title">Mystic Rebel</div></p><br /><p class = "desc">103, 106 - 50th Ave West Claresholm, Alberta T0L 0T0</p><video autoplay> <source src="Mystic Rebel.mp4" type="video/mp4"> </video><iframe width="300" height="300" src="https://www.youtube.com/embed/uxPdPpi5W4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><a href="#"><i class="fab fa-telegram-plane"> Directions</i></a>')
-  .openOn(mymap);
+    /*.openOn(mymap);*/
+    
+    var popup2 = L.popup({
+    
+    })
+    .setLatLng([51.045,  -110])
+    .setContent('<div class = "border"><p class = "title">Rex BarberShop</div></p><br /><p class = "desc"> 106 50 Ave West Claresholm, Alberta T0L0T0</p><video autoplay> <source src="JKsBarbershop.mp4" type="video/mp4"> </video><a href="#"><i class="fab fa-telegram-plane"> Directions</i></a>')
+    
+    /*L.marker([50.026439,  -113.582744]).addTo(mymap)
+    .bindPopup(popup1).closePopup();*/
+    
+    var mystic = document.querySelector('#rebel');
+    console.log(mystic);
 
+    var jk = document.querySelector('#rex');
+  
+  
+    mystic.addEventListener('click', function(){
+      L.marker([50.026439,  -113.582744]).addTo(mymap)
+    .bindPopup(popup1).togglePopup();});
 
-	L.marker([50.026439,  -113.582744]).addTo(mymap)
-    .bindPopup(popup1).openPopup();
-
+    jk.addEventListener('click', function(){
+      L.marker([51.045,  -120]).addTo(mymap)
+    .bindPopup(popup2).togglePopup();});
 
 
 

@@ -1,0 +1,267 @@
+html {
+  font-size: 62.5%; /* 10/16 = 0.625 * 100 = */
+  box-sizing: border-box;
+}
+
+body {
+  margin:0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#mapid{
+  margin-left: 48rem;
+  z-index:0;
+  transition: all .8s cubic-bezier(1, 0, 0, 1);
+}
+/* end of common styles */
+
+/* navbar */
+/* sidebar */
+.sidebar {
+  width: 8rem;
+  height: 100%;
+  background-color: #eee;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  /* Z-index is added so we can place side bar infront of navigation as it comes semantically before navigation */
+}
+
+.menu-icon{
+  margin-top: 3rem;
+  /*This pushed dowm the line so it isnt stuck at the top and does not look good*/
+  cursor: pointer;
+
+}
+
+.line {
+  height: .2rem;
+  width: 2.5rem;
+  background-color: #222;
+  margin-bottom: .6rem;/*This give the lines visual look with out it is just one solid line*/
+
+  /*This has created the look of three lines*/
+}
+
+.line-1, .line-3 {
+  width: 1.8rem;
+  transition: all .4s;
+  /*This slowly extend the lines if taken away it will make a jerking aimation due to hover effect. It will not look smooth*/
+}
+
+.menu-icon:hover .line {
+  width: 2.5rem;
+  /*This give it the feel of responding to input also need transtions to make it look smooth*/
+}
+
+.social-icons-list {
+  list-style: none;
+  padding: 0px;
+  /* this is set to 0 as padding is added to indent content */
+  height: 25rem;
+  display: flex;
+  flex-direction: column;/* by default they will line uup in a row*/
+  justify-content: space-around;
+  align-items: center;
+}
+
+.social-link {
+  font-size: 2rem;
+  color: #777;
+  transition: color .3s;
+  /*added for the color trastion of hover effect*/
+}
+
+.social-link:hover {
+  color: #deaa86;
+}
+
+.year {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #555;
+
+}
+
+
+/* end of sidebar */
+/*start of naviagation*/
+.navigation {
+  position: fixed;
+  /* margin-left: 8rem; */
+  /* left: -32rem; */
+
+   width: 40rem;/*This pushs the navigation inwards towards the screen. If z-index was not placed higher on .sidebar then navigation would be pushed out exactly the same distancce from the left */
+   height: 100%;/*This is needed as nav only takes amount need to fill all tags. This takes full length of screen */
+  background: linear-gradient(to top, rgba(34, 32, 41, 1), rgba(34, 32, 41, .8)) ,url(images/farm.jpg) center no-repeat;
+  background-size: cover;
+  /* This will push div.navigation-header, ul, copyright div to separate */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: left .8s cubic-bezier(1, 0, 0, 1);
+  /* This transition refers to line 230 .checkbox:checked ~ .navigation. IT gives it the smooth motion outwards so it just doesnt appear and disappear */
+}
+
+.navigation-heading {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  /* This give it a slimmed look by decreasing the bolding */
+
+  letter-spacing: .2rem;
+  /* Push the letter apart */
+  color: #deaa86;
+  text-align: center;
+}
+
+.navigation-search {
+  position: relative;
+  /*This is changed due to move search <i> tag into the search bar  */
+}
+
+
+.navigation-search-input {
+  width: 30rem;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, .3);
+  /* darkened to make transtion look appealling */
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.6rem;
+  color: #deaa86;
+  letter-spacing: .1rem;
+  outline: none;
+  border: .1rem solid #555;
+  border-radius: 10rem;
+  transition: background-color .3s;
+  /* upon click or known as focus it it slightly changes color of background */
+}
+
+.navigation-search-input:focus {
+  background-color: rgba(0, 0, 0, .1);
+/* lower opacity via the alhha unit(0.1)  */
+}
+
+.navigation-search-btn {
+  border: none;
+  /* This removes the dated look of a button */
+  background-color: transparent;
+  /* This removes the default button look of a square */
+
+  color: #deaa86;
+  font-size: 1.7rem;
+  position: absolute;
+  /* The .navigation-search is set to relative so we can manually adjust the position  */
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.navigation-search-btn:focus {
+  outline: none;
+}
+
+.navigation-list {
+  list-style: none;
+  padding: 0;
+  /* This removes the default padding and effects the flexbox positioning */
+  height: 28rem;
+  /* This allows for the look of spac ing properly or it will not move just look the same with felx setting as <ul> tag jsut takes the space needed. */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* This gives it a look of not being aligned a box on the left hand side to see effect removed the above property */
+}
+
+.navigation-item{
+  position: relative;
+  /* This needs to be set so lines can bee seens by browser or they are set off screen */
+}
+
+.navigation-link {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .5s;
+}
+
+.navigation-link::before {
+  content: "";
+  width: 0rem;
+  height: .1rem;
+  background-color: #deaa86;
+  position: absolute;
+  top: 1rem;
+  left: -4rem;
+  transition: width .5s cubic-bezier(1, 0, 0, 1);
+      /* Starts slow and ends fast */
+}
+
+.navigation-link::after {
+  content: "";
+  width: 0rem;
+  height: .1rem;
+  background-color: #deaa86;
+  position: absolute;
+  top: 1rem;
+  right: -4rem;
+  transition: width .5s cubic-bezier(1, 0, 0, 1);
+  /* Starts slow and ends fast */
+}
+
+.navigation-link:hover{
+  color: #deaa86;
+  /* This is for text  */
+}
+
+.navigation-link:hover::before,
+.navigation-link:hover::after{
+  width: 3rem;
+}
+
+.copyright{
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-emphasis: wrap;
+  text-align: center;
+}
+.checkbox:checked ~ .navigation {
+  left: 8rem;
+  /* This pushes out the navigation out 8 rem which is 80px. IT is need for declation for naviagation on line 80 for smooth transition of move ment of navigation */
+}
+
+.checkbox:checked ~ #mapid {
+  /* transform:  translateX(300px); */
+  /* This pushes out the navigation out 8 rem which is 80px. IT is need for declation for naviagation on line 80 for smooth transition of move ment of navigation */
+
+
+
+.checkbox:checked ~ .sidebar .line-1{
+  transform: rotate(-405deg) translate(-5px,6px);
+  width: 5rem;
+  /* This translate property pull it back 5px and down 6px  */
+}
+
+.checkbox:checked ~ .sidebar .line-2{
+  opacity: 0;
+}
+.checkbox:checked ~ .sidebar .line-3{
+  transform: rotate(405deg) translate(-5px,-6px);
+  width: 5rem;
+      /* This translate property pull it back 5px and up 6px.
+      This froms the "X" on the left and rotate have to be opposite to make it look like an "X".  */
+
+}
+
+/*End of navigation*/
+/* end of navbar */
