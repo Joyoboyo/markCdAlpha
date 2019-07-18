@@ -136,6 +136,8 @@
 
 </head>
 <body>
+<!--
+
 <!-- navbar  -->
 <div class="navbar">
 
@@ -205,8 +207,9 @@
 
 
 </div>
-<!-- end of navbar -->
 
+<!-- end of navbar -->
+-->
 <div id="mapid" style="width: 1920px; height: 1200px;"></div>
 <script>
 
@@ -239,7 +242,11 @@
     
     /*L.marker([50.026439,  -113.582744]).addTo(mymap)
     .bindPopup(popup1).closePopup();*/
+
+
+    var mrgeojson = { "type": "FeatureCollection", "features": [ { "type": "Feature", "properties": {}, "geometry": { "type": "Polygon", "coordinates": [ [ [ -113.58245640993118, 50.02627504983595 ], [ -113.58228206634521, 50.02630951278933 ], [ -113.58233839273453, 50.026426686645884 ], [ -113.58251273632048, 50.0263939469206 ], [ -113.58245640993118, 50.02627504983595 ] ] ] } } ] };
     
+
     var mystic = document.querySelector('#rebel');
     console.log(mystic);
 
@@ -247,7 +254,7 @@
   
   
     mystic.addEventListener('click', function(){
-      L.marker([50.026439,  -113.582744]).addTo(mymap)
+      L.geoJson(mrgeojson).addTo(mymap)
     .bindPopup(popup1).togglePopup();});
 
     jk.addEventListener('click', function(){
