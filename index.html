@@ -9,7 +9,7 @@
 	
 	<link rel="shortcut icon" type="image/x-icon" href="#" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-  <link rel="stylesheet" href="app.css">
+  <!-- <link rel="stylesheet" href="app.css"> -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
   <!-- <link rel="stylesheet" href="leaflet.css"> -->
   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
@@ -25,7 +25,7 @@
         }
       
      div > .leaflet-popup-content-wrapper{
-      width: 43.75rem;
+      width: 30rem;
       height: 600px;
       text-align: center;
       overflow: scroll;
@@ -42,12 +42,15 @@
      .leaflet-popup-content-wrapper{
       background-color: #fff;
       background-color: #C9C7C3;
+      overflow: visible;
+      scrollbar-width: none;
      }
 
      .leaflet-popup-content{
        text-align: center;
        margin: 0;
        padding: 0;
+       overflow: visible;
       }
 
 
@@ -80,7 +83,7 @@
      }
 
       .leaflet-popup-content video{
-        width:400px;
+        width:20rem;
         height:300px;
         border-radius: 2.5rem;
       }
@@ -109,22 +112,24 @@
         position: absolute;
         top: 0;
         right: 1rem;
-        padding: 4px 4px 0 0;
-        border: none;
+        margin-top:0.5rem;
+        padding: 0.5rem;
+        border:#ffffff;
         text-align: center;
-        width: 18px;
+        width: 1rem;
         height: 14px;
         font: 16px/14px Tahoma, Verdana, sans-serif;
         /*color: #c3c3c3;*/
         color:white;
         text-decoration: none;
         font-weight: bold;
-        background: transparent;
+        background: black;
+        border-radius: 50%;
       }
       
       .leaflet-container a.leaflet-popup-close-button:hover {
         /*color: #999;*/
-        color: black;
+        color: grey;
       }
      /*.leaflet-popup-content > img{
       width: 100%;
@@ -136,91 +141,20 @@
 
 </head>
 <body>
-<!--
-
-<!-- navbar  -->
-<div class="navbar">
-
-    <input type="checkbox"  id="click" class="checkbox" hidden>
-    <!-- start sidebar -->
-    <div class="sidebar">
-        <label for="click"> 
-            <!-- This is added so it is clickable and becomes active for click event without javascript -->
-            <div class="menu-icon">
-                <div class="line line-1"></div>
-                <div class="line line-2"></div>
-                <div class="line line-3"></div>
-            </div>
-        </label>
-        <ul class="social-icons-list">
-            <li><a href="http://" class="social-link"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="http://" class="social-link"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="http://" class="social-link"><i class="fab fa-pinterest-p"></i></a></li>
-            <li><a href="http://" class="social-link"><i class="fab fa-instagram"></i></a></li>
-        </ul>
-
-        <div class="year">
-            <p>2019</p>
-        </div>
-
-    </div>
-
-    <!-- End of sidebar -->
-
-    <!-- navigation -->
-    <nav class="navigation">
-        <div class="navigation-header">
-            <h1 class="navigation-heading">Directory Project</h1>
-            <form  class="navigation-search">
-                <input type="text" name="#" class="navigation-search-input" placeholder="Search....">
-                <button class="navigation-search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        </div>
-
-        <ul class="navigation-list">
-            <li class="navigation-item">
-                <a href="#" class="navigation-link">Home</a>
-            </li>
-            <li class="navigation-item">
-                <a href="#" class="navigation-link" id="rebel">Mystic Rebel</a>
-            </li>
-            <li class="navigation-item">
-                <a href="#" class="navigation-link" id="rex"> JK's Barber Shop</a>
-            </li>
-            <!-- <li class="navigation-item">
-                <a href="#" class="navigation-link">Events</a>
-            </li> -->
-            <li class="navigation-item">
-                <a href="#" class="navigation-link">Customers</a>
-            </li><li class="navigation-item">
-                <a href="#" class="navigation-link">Contact</a>
-            </li>
-        </ul>
-
-        <div class="copyright">
-            <p>&copy; 2019. Mark Dyrholm INC & Balanced Web Solutions. All Rights Reserved </p>
-        </div>
-    </nav>
-    <!-- End of navigation -->
 
 
-</div>
-
-<!-- end of navbar -->
--->
+<div class="overlay"></div>
 <div id="mapid" style="width: 1920px; height: 1200px;"></div>
 <script>
 
   
-  <!-- var mymap = L.map('mapid').setView([50.019192, -113.583771], 16); -->
-  var mymap = L.map('mapid').setView([50.019192, -113.583771], 10);
+ // var mymap = L.map('mapid').setView([50.019192, -113.583771], 16);
+  var mymap = L.map('mapid').setView([50.02622, -113.58348], 19);
   
   
   
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-    maxZoom: 50,
+    maxZoom: 30,
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
     '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -231,47 +165,251 @@
     
   })
   .setLatLng([50.026439,  -113.582744])
-  .setContent('<div class = "border"><p class = "title">Mystic Rebel</div></p><br /><p class = "desc">103, 106 - 50th Ave West Claresholm, Alberta T0L 0T0</p><video autoplay> <source src="Mystic Rebel.mp4" type="video/mp4"> </video><iframe width="300" height="300" src="https://www.youtube.com/embed/uxPdPpi5W4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><a href="#"><i class="fab fa-telegram-plane"> Directions</i></a>')
-    /*.openOn(mymap);*/
+  .setContent('<div class = "border"><p class = "title">Mystic Rebel</div></p><br /><p class = "desc">103, 106 - 50th Ave West Claresholm, Alberta T0L 0T0</p><video autoplay> <source src="Mystic Rebel.mp4" type="video/mp4"> </video>')
+    /*.openOn(mymap);
+    <a href="#"><i class="fab fa-telegram-plane"> Directions</i></a>
+    <iframe width="300" height="300" src="https://www.youtube.com/embed/uxPdPpi5W4o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>*/
     
     var popup2 = L.popup({
     
     })
     .setLatLng([51.045,  -110])
-    .setContent('<div class = "border"><p class = "title">Rex BarberShop</div></p><br /><p class = "desc"> 106 50 Ave West Claresholm, Alberta T0L0T0</p><video autoplay> <source src="JKsBarbershop.mp4" type="video/mp4"> </video><a href="#"><i class="fab fa-telegram-plane"> Directions</i></a>')
+    .setContent('<div class = "border"><p class = "title">Rex BarberShop</div></p><br /><p class = "desc"> 106 50 Ave West Claresholm, Alberta T0L0T0</p><video autoplay> <source src="JKsBarbershop.mp4" type="video/mp4"> </video><a href="#"><i class="fab fa-telegram-plane"> Directions</i></a>');
     
     /*L.marker([50.026439,  -113.582744]).addTo(mymap)
     .bindPopup(popup1).closePopup();*/
 
 
-    var mrgeojson = { "type": "FeatureCollection", "features": [ { "type": "Feature", "properties": {}, "geometry": { "type": "Polygon", "coordinates": [ [ [ -113.58245640993118, 50.02627504983595 ], [ -113.58228206634521, 50.02630951278933 ], [ -113.58233839273453, 50.026426686645884 ], [ -113.58251273632048, 50.0263939469206 ], [ -113.58245640993118, 50.02627504983595 ] ] ] } } ] };
+ var mrgeojson = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -113.58248323202132,
+              50.02628021928056
+            ],
+            [
+              -113.58230888843535,
+              50.02631468223022
+            ],
+            [
+              -113.58236521482466,
+              50.026431856074154
+            ],
+            [
+              -113.58253955841062,
+              50.0263991163524
+            ],
+            [
+              -113.58248323202132,
+              50.02628021928056
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+};
     
 
-    var mystic = document.querySelector('#rebel');
-    console.log(mystic);
+   var plotGeoJSON = L.geoJson(mrgeojson)
+   .addTo(mymap)
+
+   .bindPopup(popup1).closePopup();
+
+
+
+    /*var mystic = document.querySelector('#rebel');
+    console.log(mystic);*/
 
     var jk = document.querySelector('#rex');
   
   
-    mystic.addEventListener('click', function(){
-      L.geoJson(mrgeojson).addTo(mymap)
-    .bindPopup(popup1).togglePopup();});
-
+    /*
     jk.addEventListener('click', function(){
       L.marker([51.045,  -120]).addTo(mymap)
-    .bindPopup(popup2).togglePopup();});
+    .bindPopup(popup2).togglePopup();});*/
 
-
-
-	L.circle([50.030192, -155.583771], 500, {
+// 1
+	L.circle([50.02619923125149, -113.58299285173416], 2, {
 		color: 'red',
 		fillColor: '#f03',
 		fillOpacity: 0.5
-  }).addTo(mymap).bindPopup('im a circle');
+  }).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
   
+  //2 
+  L.circle([50.02615787560951,-113.58321011066437], 2, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+  }).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//3
+L.circle([50.0261,-113.58343809843062], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//4
+L.circle([50.02608377999526,-113.5836], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//5
+L.circle([50.0260596558171, -113.58374387025833], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//6
+L.circle([50.02602346952719, -113.58393430709839], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//7
+L.circle([50.02599589900226,-113.58406573534012], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//8
+L.circle([50.02597349793911,-113.5841703414917], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//9
+L.circle([50.025945927385536,-113.58431786298752], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//10
+L.circle([50.026087226305435, -113.58293116092682], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//11
+L.circle([50.026052763192546,-113.58309745788573], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//12
+L.circle([50.02604242425387,-113.58321279287338], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//13
+L.circle([50.02602346952719, -113.58330398797989], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//14
+L.circle([50.026007961108874,-113.58337908983229], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+//15
+L.circle([50.025990729527074,-113.58347296714783], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//16
+L.circle([50.02597177477998, -113.58356416225433], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//17
+L.circle([50.02595454318523,-113.58364194631577], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//18
+L.circle([50.025940757904955,-113.58371973037718], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//19
+L.circle([50.025925249459945, -113.5837921500206], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//20
+L.circle([50.02591318733258,-113.58386725187302], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//21
+L.circle([50.025901125202175, -113.58394503593445], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//22
+L.circle([50.02588733990658, -113.58402281999587], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//23
+L.circle([50.02587527776969, -113.58408987522125], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+//24
+L.circle([50.02585976930354,-113.58417302370071], 2, {
+  color: 'red',
+  fillColor: '#f03',
+  fillOpacity: 0.5
+}).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+
+/*
 
 
-/*	L.polygon([
+*/
+
+
+	/*L.polygon([
 		[51.509, -0.08],
 		[51.503, -0.06],
 		[51.51, -0.047]
