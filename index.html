@@ -216,26 +216,207 @@
     }
   ]
 };
-    
 
-   var plotGeoJSON = L.geoJson(mrgeojson)
+var geojson1 = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -113.58246713876721,
+              50.026276772984225
+            ],
+            [
+              -113.58229279518125,
+              50.026311235936355
+            ],
+            [
+              -113.58234912157056,
+              50.026428409788714
+            ],
+            [
+              -113.58252346515651,
+              50.026395670064616
+            ],
+            [
+              -113.58246713876721,
+              50.026276772984225
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+};
+
+var geojson2 ={
+  "type": "Feature",
+  "properties": {},
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -113.58253687620164,
+          50.02626471094514
+        ],
+        [
+          -113.58247786760333,
+          50.02627504983595
+        ],
+        [
+          -113.58253419399264,
+          50.026392223776575
+        ],
+        [
+          -113.58259588479997,
+          50.026380161766475
+        ],
+        [
+          -113.58253687620164,
+          50.02626471094514
+        ]
+      ]
+    ]
+  }
+};
+
+var geojson3 = {
+  "type": "Feature",
+  "properties": {},
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -113.58260929584503,
+          50.02624920260469
+        ],
+        [
+          -113.58254760503769,
+          50.02625954149888
+        ],
+        [
+          -113.58260929584503,
+          50.02637671547729
+        ],
+        [
+          -113.58266562223434,
+          50.026364653463325
+        ],
+        [
+          -113.58260929584503,
+          50.02624920260469
+        ]
+      ]
+    ]
+  }
+};
+
+
+var geojson4 = {
+  "type": "Feature",
+  "properties": {},
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -113.58266830444337,
+          50.0262388637083
+        ],
+        [
+          -113.5826227068901,
+          50.02624747945545
+        ],
+        [
+          -113.5826763510704,
+          50.02635948402783
+        ],
+        [
+          -113.58272463083267,
+          50.02634914515516
+        ],
+        [
+          -113.58266830444337,
+          50.0262388637083
+        ]
+      ]
+    ]
+  }
+};
+
+var geojson5 = {
+  "type": "Feature",
+  "properties": {},
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -113.5827326774597,
+          50.026226801659675
+        ],
+        [
+          -113.58268171548843,
+          50.02623541740901
+        ],
+        [
+          -113.58273804187775,
+          50.02634569886378
+        ],
+        [
+          -113.58278095722198,
+          50.02633880628027
+        ],
+        [
+          -113.5827326774597,
+          50.026226801659675
+        ]
+      ]
+    ]
+  }
+};
+
+   var plotGeoJSON1 = L.geoJson(geojson1)
    .addTo(mymap)
-
    .bindPopup(popup1).closePopup();
+
+   var plotGeoJSON2 = L.geoJson(geojson2)
+   .addTo(mymap)
+   .bindPopup(popup1).closePopup();
+
+   var plotGeoJSON3 = L.geoJson(geojson3)
+   .addTo(mymap)
+   .bindPopup(popup1).closePopup();
+
+   var plotGeoJSON4 = L.geoJson(geojson4)
+   .addTo(mymap)
+   .bindPopup(popup1).closePopup();
+
+   var plotGeoJSON5 = L.geoJson(geojson5)
+   .addTo(mymap)
+   .bindPopup(popup1).closePopup();
+
 
 
 
     /*var mystic = document.querySelector('#rebel');
     console.log(mystic);*/
 
-    var jk = document.querySelector('#rex');
+    /*var jk = document.querySelector('#rex');*/
   
   
     /*
     jk.addEventListener('click', function(){
       L.marker([51.045,  -120]).addTo(mymap)
     .bindPopup(popup2).togglePopup();});*/
-
+/*
 // 1
 	L.circle([50.02619923125149, -113.58299285173416], 2, {
 		color: 'red',
@@ -402,6 +583,7 @@ L.circle([50.02585976930354,-113.58417302370071], 2, {
   fillColor: '#f03',
   fillOpacity: 0.5
 }).addTo(mymap).bindPopup('<strong>Business Space Avaialable</strong>');
+*/
 
 /*
 
